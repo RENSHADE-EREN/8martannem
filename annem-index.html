@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Annem Sibel'e — 8 Mart 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── AÇILIŞ EKRANI ── */
+    #intro {
+      position: fixed;
+      inset: 0;
+      background: #fff0f4;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      animation: introOut 0.8s 3.8s forwards cubic-bezier(.77,0,.18,1);
+      pointer-events: all;
+    }
+    @keyframes introOut {
+      to { opacity: 0; pointer-events: none; transform: scale(1.03); }
+    }
+    .intro-flower {
+      font-size: 3.2rem;
+      animation: bloom .8s ease forwards;
+    }
+    @keyframes bloom {
+      from { transform: scale(0) rotate(-30deg); opacity: 0; }
+      to   { transform: scale(1) rotate(0); opacity: 1; }
+    }
+    .intro-to {
+      font-size: .72rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: #e8476a;
+      font-weight: 600;
+      opacity: 0;
+      animation: fadeUp .5s .4s forwards;
+    }
+    .intro-names {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 9vw, 3.6rem);
+      font-style: italic;
+      color: #2a1020;
+      text-align: center;
+      line-height: 1.2;
+      opacity: 0;
+      animation: fadeUp .6s .7s forwards;
+    }
+    .intro-names .accent { color: #e8476a; }
+    .intro-sub {
+      font-size: .85rem;
+      color: #b08090;
+      opacity: 0;
+      animation: fadeUp .5s 1.2s forwards;
+    }
+    .intro-heart {
+      font-size: 1.6rem;
+      opacity: 0;
+      animation: fadeUp .5s 1.6s forwards;
+    }
+    .intro-bar {
+      height: 2px;
+      background: #e8476a;
+      border-radius: 2px;
+      width: 0;
+      animation: barGrow 1.6s 1.3s forwards ease-out;
+    }
+    @keyframes barGrow {
+      from { width: 0; }
+      to   { width: 140px; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* ── ANA SAYFA ── */
+    body {
+      background: #fff8f9;
+      font-family: 'Nunito', sans-serif;
+      color: #3a2030;
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 10% 20%, #fce4ec55 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, #fce4ec44 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 32px 60px;
+    }
+
+    .top { text-align: center; margin-bottom: 56px; }
+    .emoji-big {
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: 20px;
+      animation: sway 3s ease-in-out infinite;
+    }
+    @keyframes sway {
+      0%,100% { transform: rotate(-6deg); }
+      50%      { transform: rotate(6deg); }
+    }
+    .date-line {
+      font-size: .78rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: #e8476a;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .title {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-style: italic;
+      line-height: 1.3;
+      color: #2a1020;
+    }
+    .title span { color: #e8476a; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff0f4;
+      border: 1.5px solid #f7b2c1;
+      border-radius: 50px;
+      padding: 8px 20px;
+      margin-top: 20px;
+      font-size: .82rem;
+      color: #e8476a;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    /* ── MEKTUP ── */
+    .letter {
+      background: #fff;
+      border-radius: 20px;
+      padding: 48px 44px;
+      box-shadow: 0 4px 40px rgba(232,71,106,.08);
+      position: relative;
+      margin-bottom: 40px;
+    }
+    .letter::before {
+      content: '🌹';
+      position: absolute;
+      top: -18px; left: 32px;
+      font-size: 2rem;
+    }
+    .letter p {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: #4a3040;
+      font-weight: 300;
+    }
+    .letter p + p { margin-top: 18px; }
+    .letter .highlight { color: #e8476a; font-weight: 600; }
+    .letter .name-tag {
+      background: #fff0f4;
+      color: #e8476a;
+      font-weight: 700;
+      padding: 1px 8px;
+      border-radius: 6px;
+      font-style: normal;
+    }
+    .letter .sign {
+      margin-top: 32px;
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: .95rem;
+      color: #9a7080;
+    }
+
+    /* ── KARTLAR ── */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: 0 2px 20px rgba(232,71,106,.07);
+      transition: transform .25s;
+    }
+    .card:hover { transform: translateY(-4px); }
+    .card .icon { font-size: 2rem; margin-bottom: 10px; }
+    .card .word {
+      font-family: 'Lora', serif;
+      font-size: .95rem;
+      font-style: italic;
+      color: #e8476a;
+    }
+    .card .desc {
+      font-size: .78rem;
+      color: #9a7080;
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* ── ALINTI ── */
+    .quote-wrap {
+      background: #e8476a;
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .quote-wrap blockquote {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #fff;
+      line-height: 1.7;
+    }
+    .quote-wrap cite {
+      display: block;
+      margin-top: 16px;
+      font-size: .8rem;
+      color: rgba(255,255,255,.7);
+      font-style: normal;
+      letter-spacing: .1em;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 20px;
+      font-size: .8rem;
+      color: #c4a0b0;
+    }
+    footer span { color: #e8476a; }
+
+    .petals { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+    .petal {
+      position: absolute;
+      top: -30px;
+      animation: fall linear infinite;
+      opacity: 0.45;
+    }
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    @media (max-width: 500px) {
+      .cards { grid-template-columns: 1fr; }
+      .letter { padding: 36px 24px; }
+      main { padding: 60px 20px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- AÇILIŞ EKRANI -->
+<div id="intro">
+  <div class="intro-flower">🌹</div>
+  <p class="intro-to">Canım annem için</p>
+  <h2 class="intro-names"><span class="accent">Sibel</span>'e</h2>
+  <p class="intro-sub">Dünyamın en güzel insanına 💕</p>
+  <div class="intro-bar"></div>
+</div>
+
+<!-- PETAL YAĞMURU -->
+<div class="petals" id="petals"></div>
+
+<main>
+
+  <div class="top">
+    <span class="emoji-big">🌹</span>
+    <p class="date-line">8 Mart · Dünya Kadınlar Günü</p>
+    <h1 class="title">Canım annem <span>Sibel,</span><br>seni çok seviyorum.</h1>
+    <span class="badge">💝 Sana özel hazırlandı</span>
+  </div>
+
+  <div class="letter">
+    <p>
+      Sevgili <span class="name-tag">Annem Sibel</span>,
+    </p>
+    <p>
+      Bugün sadece bir tarih değil — beni büyüten, her düşüşümde
+      kaldıran, her sevinçte yanımda olan <span class="highlight">sana teşekkür etmek</span> için
+      çok özel bir gün.
+    </p>
+    <p>
+      Yorulduğunda bile bırakmadın, zor günlerde
+      en büyük gücüm oldun. Bazen bir söz, bazen sıcak bir bakış,
+      bazen sadece sesin —
+      <span class="highlight">hepsi benim için her şeydi.</span>
+    </p>
+    <p>
+      Bu dünya seninle çok daha güzel, çok daha anlamlı.
+      Bunu her zaman bilmeni istiyorum. 💕
+    </p>
+    <p class="sign">— Seni çok seviyorum, Eren 🌹</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🦋</div>
+      <div class="word">Güçlüsün</div>
+      <div class="desc">Her zorluğun üstesinden geldin hep</div>
+    </div>
+    <div class="card">
+      <div class="icon">💖</div>
+      <div class="word">Değerlisin</div>
+      <div class="desc">Olduğun gibi, tam da kendin</div>
+    </div>
+    <div class="card">
+      <div class="icon">🏡</div>
+      <div class="word">Evimsin</div>
+      <div class="desc">Yanında olmak hep huzur</div>
+    </div>
+  </div>
+
+  <div class="quote-wrap">
+    <blockquote>
+      "Türk kadını dünyanın en aydın, en faziletli ve en ağır başlı kadını olmalıdır."
+    </blockquote>
+    <cite>— Mustafa Kemal Atatürk</cite>
+  </div>
+
+  <footer>
+    <p>8 Mart Dünya Kadınlar Günü &nbsp;<span>♥</span>&nbsp; Annem Sibel'e sevgiyle, Eren</p>
+  </footer>
+
+</main>
+
+<script>
+  const container = document.getElementById('petals');
+  const emojis = ['🌸','🌷','🌹','✿','❀','🌺'];
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (7 + Math.random() * 10) + 's';
+    p.style.animationDelay = (Math.random() * 12) + 's';
+    p.style.fontSize = (.8 + Math.random() * .8) + 'rem';
+    container.appendChild(p);
+  }
+</script>
+</body>
+</html>
